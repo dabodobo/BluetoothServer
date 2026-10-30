@@ -11,14 +11,14 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/Text_Details_Server"
-        android:layout_width="300dp"
+        android:id="@+id/TextMac"
+        android:layout_width="150dp"
         android:layout_height="20dp"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="60dp"
-        android:text="Details of the BLuetooth Server Adapter"
+        android:layout_marginEnd="32dp"
+        android:text="MAC"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -35,7 +35,7 @@
         app:iconTint="#E91E63"
         app:iconTintMode="multiply"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Server" />
+        app:layout_constraintTop_toBottomOf="@+id/TextMac" />
 
     <TextView
         android:id="@+id/Text_Details_Client"
@@ -46,24 +46,6 @@
         android:text="Details Client"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Btn_Accept_Connection" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="374dp"
-        android:layout_height="337dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Client">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 
     <Button
         android:id="@+id/Btn_Accept_Connection"
@@ -83,24 +65,13 @@
         app:iconTint="#00BCD4"
         app:layout_constraintEnd_toStartOf="@+id/Btn_Close_Connection"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Server" />
-
-    <TextView
-        android:id="@+id/Text_Editable"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="92dp"
-        android:text="Tap to send"
-        android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/TextMac" />
 
     <Button
         android:id="@+id/Btn_Send"
         android:layout_width="0dp"
         android:layout_height="61dp"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="71dp"
         android:backgroundTint="@android:color/holo_orange_light"
@@ -111,7 +82,44 @@
         app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sendTextEditText" />
+
+    <TextView
+        android:id="@+id/recievedEditText"
+        android:layout_width="0dp"
+        android:layout_height="360dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="50dp"
+        android:text="Recieved"
+        app:layout_constraintBottom_toTopOf="@+id/Btn_Send"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Text_Editable" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Client"
+        app:layout_constraintVertical_bias="0.434" />
+
+    <EditText
+        android:id="@+id/sendTextEditText"
+        android:layout_width="178dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="71dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Type to send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/TextName"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
