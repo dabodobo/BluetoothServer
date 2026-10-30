@@ -55,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
         obtainAdapaterBLuetooth(); // Comprobación de que existe adaotador bluetooth en el dispositivo
         bt_activated_check(); // Comprobación de que el bluetooth está activado
 
+        // CONDICIONES INICIALES DE LOS BOTONES
+        this.acceptConnectionButton.setEnabled(true);
+        this.closeConnectionButton.setEnabled(false);
+        this.sendTextButton.setEnabled(false);
+        this.sendTextEditText.setEnabled(false);
+        this.BT_ConnectionState_TextView.setText("NOT CONNECTED");
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
