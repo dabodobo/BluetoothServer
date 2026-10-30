@@ -1,0 +1,112 @@
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/main\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@color/material_dynamic_neutral60\"\n    android:backgroundTint=\"@color/white\"\n    android:backgroundTintMode=\"src_atop\"\n    tools:context=\".MainActivity\">\n\n    <TextView\n        android:id=\"@+id/Text_Details_Server\"\n        android:layout_width=\"300dp\"\n        android:layout_height=\"20dp\"\n        android:layout_marginStart=\"32dp\"\n        android:layout_marginTop=\"60dp\"\n        android:text=\"Details of the BLuetooth Server Adapter\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintVertical_bias=\"0.0\" />\n\n    <Button\n        android:id=\"@+id/Btn_Close_Connection\"\n        android:layout_width=\"180dp\"\n        android:layout_height=\"61dp\"\n        android:layout_marginTop=\"28dp\"\n        android:layout_marginEnd=\"24dp\"\n        android:backgroundTint=\"@color/material_dynamic_primary70\"\n        android:text=\"CLOSE CONNECTION\"\n        app:icon=\"@android:drawable/sym_call_missed\"\n        app:iconPadding=\"1dp\"\n        app:iconTint=\"#E91E63\"\n        app:iconTintMode=\"multiply\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/Text_Details_Server\" />\n\n    <TextView\n        android:id=\"@+id/Text_Details_Client\"\n        android:layout_width=\"142dp\"\n        android:layout_height=\"21dp\"\n        android:layout_marginStart=\"32dp\"\n        android:layout_marginTop=\"25dp\"\n        android:text=\"Details Client\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/Btn_Accept_Connection\" />\n\n    <Button\n        android:id=\"@+id/Btn_Accept_Connection\"\n        android:layout_width=\"146dp\"\n        android:layout_height=\"61dp\"\n        android:layout_marginStart=\"30dp\"\n        android:layout_marginTop=\"28dp\"\n        android:layout_marginEnd=\"25dp\"\n        android:backgroundTint=\"@color/material_dynamic_secondary50\"\n        android:fontFamily=\"sans-serif-medium\"\n        android:text=\"ACCEPT CONNECTION\"\n        android:textSize=\"10sp\"\n        android:typeface=\"normal\"\n        app:icon=\"@android:drawable/stat_sys_data_bluetooth\"\n        app:iconPadding=\"4dp\"\n        app:iconSize=\"20dp\"\n        app:iconTint=\"#00BCD4\"\n        app:layout_constraintEnd_toStartOf=\"@+id/Btn_Close_Connection\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/Text_Details_Server\" />\n\n    <Button\n        android:id=\"@+id/Btn_Send\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"61dp\"\n        android:layout_marginStart=\"20dp\"\n        android:layout_marginEnd=\"24dp\"\n        android:layout_marginBottom=\"71dp\"\n        android:backgroundTint=\"@android:color/holo_orange_light\"\n        android:text=\"SEND\"\n        app:icon=\"@android:drawable/ic_menu_send\"\n        app:iconPadding=\"0dp\"\n        app:iconTint=\"@color/black\"\n        app:iconTintMode=\"multiply\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toEndOf=\"@+id/sendTextEditText\" />\n\n    <TextView\n        android:id=\"@+id/recievedEditText\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"360dp\"\n        android:layout_marginStart=\"32dp\"\n        android:layout_marginTop=\"20dp\"\n        android:layout_marginEnd=\"32dp\"\n        android:layout_marginBottom=\"20dp\"\n        android:text=\"Recieved\"\n        app:layout_constraintBottom_toTopOf=\"@+id/Btn_Send\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/Text_Details_Client\" />\n\n    <EditText\n        android:id=\"@+id/sendTextEditText\"\n        android:layout_width=\"205dp\"\n        android:layout_height=\"40dp\"\n        android:layout_marginStart=\"32dp\"\n        android:layout_marginBottom=\"71dp\"\n        android:ems=\"10\"\n        android:inputType=\"text\"\n        android:text=\"Type to send\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\" />\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 943398cc933b19057099dde14a9fd4688c267815)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1793375770157)
+@@ -11,14 +11,14 @@
+     tools:context=".MainActivity">
+ 
+     <TextView
+-        android:id="@+id/Text_Details_Server"
+-        android:layout_width="300dp"
++        android:id="@+id/TextMac"
++        android:layout_width="150dp"
+         android:layout_height="20dp"
+-        android:layout_marginStart="32dp"
+         android:layout_marginTop="60dp"
+-        android:text="Details of the BLuetooth Server Adapter"
++        android:layout_marginEnd="32dp"
++        android:text="MAC"
+         app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.0" />
+ 
+@@ -35,7 +35,7 @@
+         app:iconTint="#E91E63"
+         app:iconTintMode="multiply"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Server" />
++        app:layout_constraintTop_toBottomOf="@+id/TextMac" />
+ 
+     <TextView
+         android:id="@+id/Text_Details_Client"
+@@ -65,7 +65,7 @@
+         app:iconTint="#00BCD4"
+         app:layout_constraintEnd_toStartOf="@+id/Btn_Close_Connection"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Server" />
++        app:layout_constraintTop_toBottomOf="@+id/TextMac" />
+ 
+     <Button
+         android:id="@+id/Btn_Send"
+@@ -91,16 +91,18 @@
+         android:layout_marginStart="32dp"
+         android:layout_marginTop="20dp"
+         android:layout_marginEnd="32dp"
+-        android:layout_marginBottom="20dp"
++        android:layout_marginBottom="50dp"
+         android:text="Recieved"
+         app:layout_constraintBottom_toTopOf="@+id/Btn_Send"
+         app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Client" />
++        app:layout_constraintTop_toBottomOf="@+id/Text_Details_Client"
++        app:layout_constraintVertical_bias="0.434" />
+ 
+     <EditText
+         android:id="@+id/sendTextEditText"
+-        android:layout_width="205dp"
++        android:layout_width="178dp"
+         android:layout_height="40dp"
+         android:layout_marginStart="32dp"
+         android:layout_marginBottom="71dp"
+@@ -110,4 +112,14 @@
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintStart_toStartOf="parent" />
+ 
++    <TextView
++        android:id="@+id/TextName"
++        android:layout_width="150dp"
++        android:layout_height="20dp"
++        android:layout_marginStart="32dp"
++        android:layout_marginTop="60dp"
++        android:text="Name"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/bluetooth_server/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.bluetooth_server;\n\nimport android.os.Bundle;\nimport android.widget.Button;\nimport android.widget.EditText;\nimport android.widget.TextView;\n\nimport androidx.activity.EdgeToEdge;\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.core.graphics.Insets;\nimport androidx.core.view.ViewCompat;\nimport androidx.core.view.WindowInsetsCompat;\n\npublic class MainActivity extends AppCompatActivity {\n    TextView receivedEditText;\n    EditText sendTextEditText;\n    Button acceptConnectionButton;\n    Button closeConnectionButton;\n    Button sendTextButton;\n    TextView BT_MAC_TextView;\n    TextView BT_Name_TextView;\n    TextView BT_ConnectionState_TextView;\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        EdgeToEdge.enable(this);\n        setContentView(R.layout.activity_main);\n\n        this.receivedEditText = (TextView) findViewById(R.id.recievedEditText);\n        this.sendTextEditText =\n        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {\n            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());\n            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);\n            return insets;\n        });\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bluetooth_server/MainActivity.java b/app/src/main/java/com/example/bluetooth_server/MainActivity.java
+--- a/app/src/main/java/com/example/bluetooth_server/MainActivity.java	(revision 943398cc933b19057099dde14a9fd4688c267815)
++++ b/app/src/main/java/com/example/bluetooth_server/MainActivity.java	(date 1793375753919)
+@@ -27,7 +27,14 @@
+         setContentView(R.layout.activity_main);
+ 
+         this.receivedEditText = (TextView) findViewById(R.id.recievedEditText);
+-        this.sendTextEditText =
++        this.sendTextEditText = this.sendTextEditText = (EditText) findViewById(R.id.sendTextEditText);
++        this.acceptConnectionButton = (Button) findViewById(R.id.Btn_Accept_Connection);
++        this.closeConnectionButton = (Button) findViewById(R.id.Btn_Close_Connection);
++        this.sendTextButton = (Button) findViewById(R.id.Btn_Send);
++        this.BT_MAC_TextView = (TextView) findViewById(R.id.TextMac);
++        this.BT_Name_TextView = (TextView) findViewById(R.id.TextName);
++        this.BT_ConnectionState_TextView = (TextView)
++                findViewById(R.id.Text_Details_Client);
+         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
