@@ -59,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
         this.BT_Name_TextView = (TextView) findViewById(R.id.TextName);
         this.BT_ConnectionState_TextView = (TextView) findViewById(R.id.Text_Details_Client);
 
-        this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        obtainAdapaterBLuetooth(); // Comprobación de que existe adaotador bluetooth en el dispositivo
-        bt_activated_check(); // Comprobación de que el bluetooth está activado
+
 
         // CONDICIONES INICIALES DE LOS BOTONES
         this.acceptConnectionButton.setEnabled(true);
@@ -69,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
         this.sendTextButton.setEnabled(false);
         this.sendTextEditText.setEnabled(false);
         this.BT_ConnectionState_TextView.setText("NOT CONNECTED");
+
+        this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        obtainAdapaterBLuetooth(); // Comprobación de que existe adaotador bluetooth en el dispositivo
+        BluetoothPermissionsCheck();
+        bt_activated_check(); // Comprobación de que el bluetooth está activado
 
         // Mostrar la dirección MAC y NAME de nuestro dispositivo
         showBT_MAC_NAME();
@@ -106,6 +109,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT
             ).show();
             return false;
+        }
+        return true;
+    }
+    private boolean BluetoothPermissionsCheck() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.BLUETOOTH_CONNECT
+            ) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        this,
+                        new String[]{Manifest.permission.BLUETOOTH_CONNECT},
+                        1
+                );
+                return false;
+            }
         }
         return true;
     }
@@ -154,6 +173,14 @@ public class MainActivity extends AppCompatActivity {
         this.closeConnectionButton.setEnabled(true);
         this.sendTextButton.setEnabled(true);
         this.sendTextEditText.setEnabled(true);
+    }
+    public void closeConnectionButtonOnClick(View v) {
+        initializeBlueetoothServerManager();
+        this.acceptConnectionButton.setEnabled(true);
+        this.closeConnectionButton.setEnabled(false);
+        this.sendTextButton.setEnabled(false);
+        this.sendTextEditText.setEnabled(false);
+        this.BT_ConnectionState_TextView.setText("NOT CONNECTED");
     }
 
 

@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-public class BluetoothServerManager {
+public class BluetoothServerManager extends Thread {
 
     // Variables de la clase
     private BluetoothAdapter bluetoothAdapter;
