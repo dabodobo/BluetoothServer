@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         this.sendTextEditText.setEnabled(false);
         this.BT_ConnectionState_TextView.setText("NOT CONNECTED");
 
-        // Mostrar la dirección MAC de nuestro dispositivo
+        // Mostrar la dirección MAC y NAME de nuestro dispositivo
         showBT_MAC_NAME();
 
 
