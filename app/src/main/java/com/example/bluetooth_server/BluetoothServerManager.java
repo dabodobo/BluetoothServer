@@ -23,6 +23,8 @@ public class BluetoothServerManager extends Thread {
 
     public static boolean exitCurrentConnection = false;
 
+
+
     // Constructor
     public BluetoothServerManager(BluetoothAdapter _bluetoothAdapter,
                                   Handler _handlerNetworkExecutorResult) {
@@ -88,7 +90,7 @@ public class BluetoothServerManager extends Thread {
                 for (int i=0; i<1024; i++){
                     buffer[i]=0;
                 }
-                inputStream.read(buffer);
+                inputStream.read(buffer); // acción bloqueante
                 cadena = new String(buffer);
                 if (cadena != null) {
                     if((cadena.equals("EXIT")||(cadena.equals("exit")))){

@@ -29,6 +29,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/material_dynamic_primary70"
+        android:onClick="closeConnectionButtonOnClick"
         android:text="CLOSE CONNECTION"
         app:icon="@android:drawable/sym_call_missed"
         app:iconPadding="1dp"
@@ -39,8 +40,8 @@
 
     <TextView
         android:id="@+id/Text_Details_Client"
-        android:layout_width="142dp"
-        android:layout_height="21dp"
+        android:layout_width="214dp"
+        android:layout_height="18dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
         android:text="Details Client"
@@ -56,6 +57,7 @@
         android:layout_marginEnd="25dp"
         android:backgroundTint="@color/material_dynamic_secondary50"
         android:fontFamily="sans-serif-medium"
+        android:onClick="acceptConnectionButtonOnClick"
         android:text="ACCEPT CONNECTION"
         android:textSize="10sp"
         android:typeface="normal"

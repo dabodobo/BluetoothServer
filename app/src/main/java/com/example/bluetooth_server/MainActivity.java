@@ -150,8 +150,9 @@ public class MainActivity extends AppCompatActivity {
     private void showBT_MAC_NAME(){
         String BT_name = this.mBluetoothAdapter.getName();
         String BT_MAC = this.mBluetoothAdapter.getAddress();
-        this.BT_MAC_TextView.setText("BT MAC:"+BT_MAC);
-        this.BT_Name_TextView.setText("BT Name:"+BT_name);
+        this.BT_MAC_TextView.setText("MAC:"+BT_MAC);
+        //this.BT_MAC_TextView.setText("HOLA CARACOLA");
+        this.BT_Name_TextView.setText("BT Name: "+BT_name);
     }
 
     // SERVER
