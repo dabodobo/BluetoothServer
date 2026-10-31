@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import android.content.Intent;
 
+
 public class MainActivity extends AppCompatActivity {
     TextView receivedEditText;
     EditText sendTextEditText;
@@ -37,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<Intent> enableBtLauncher;
 
-    private Handler handlerNetworkExecutorResult;
+    private Handler handlerNetworkExecutorResult; // tuberia
+
+    private BluetoothServerManager btServerManager; // clase nuestra de JAVA: BluetoothServerManager
     int REQUEST_ENABLE_BT = 1;
 
     @Override
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     // FUNCIONES BLUETOOTH
     private boolean obtainAdapaterBLuetooth() {
         if (mBluetoothAdapter == null) {
@@ -129,6 +134,28 @@ public class MainActivity extends AppCompatActivity {
         this.BT_MAC_TextView.setText("BT MAC:"+BT_MAC);
         this.BT_Name_TextView.setText("BT Name:"+BT_name);
     }
+
+    // SERVER
+    private void initializeBlueetoothServerManager(){
+//PASO 6
+        if (this.btServerManager == null) {
+            this.btServerManager = new
+                    BluetoothServerManager(this.mBluetoothAdapter,
+                    handlerNetworkExecutorResult);
+            this.btServerManager.start();
+        }else{
+            this.btServerManager.exitCurrentConnection = true;
+//this.btServerManager.cancel();
+        }
+    }
+    public void acceptConnectionButtonOnClick(View v) {
+        initializeBlueetoothServerManager();
+        this.acceptConnectionButton.setEnabled(false);
+        this.closeConnectionButton.setEnabled(true);
+        this.sendTextButton.setEnabled(true);
+        this.sendTextEditText.setEnabled(true);
+    }
+
 
 
 }

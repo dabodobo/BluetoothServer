@@ -2,6 +2,7 @@ package com.example.bluetooth_server;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothServerSocket;
+import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -57,4 +58,53 @@ public class BluetoothServerManager {
         msg.obj = displayMessage.replaceAll("_", " ");
         handlerNetworkExecutorResult.sendMessage(msg);
     }
+    public void run() {
+        BluetoothSocket socket = null;
+        while (true) {
+            try {
+                showSocketStateMessage("WAITING FOR CONNECTION");
+                socket = bluetoothServerSocket.accept();
+                String remoteDeviceAddress = socket.getRemoteDevice().getAddress();
+                String remoteDeviceName = socket.getRemoteDevice().getName();
+                showSocketStateMessage("CONNECTED: NAME="+remoteDeviceName+": MAC="+remoteDeviceAddress);
+            } catch (IOException e) {
+                showSocketStateMessage("SOCKET ERROR:"+e);
+                break;
+            }
+            //Si la conexion fue aceptada
+            if (socket != null) {
+                manageConnectedSocket(socket);
+            }
+        }
+    }
+    public void manageConnectedSocket(BluetoothSocket socket){
+        try {
+            inputStream = socket.getInputStream();
+            outputStream = socket.getOutputStream();
+            exitCurrentConnection = false;
+            while (!exitCurrentConnection) {
+                String cadena = "";
+                byte[] buffer = new byte[1024];
+                for (int i=0; i<1024; i++){
+                    buffer[i]=0;
+                }
+                inputStream.read(buffer);
+                cadena = new String(buffer);
+                if (cadena != null) {
+                    if((cadena.equals("EXIT")||(cadena.equals("exit")))){
+                        exitCurrentConnection = true;
+                    }else{
+                        showDisplayMessage(cadena);
+                    }
+                }
+            }
+        }catch(IOException e){
+            Log.d("ERROR:",""+e);
+        }
+    }
+
+
+
+
+
 }
