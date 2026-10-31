@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+
+import android.os.Handler;
+import android.os.Message;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<Intent> enableBtLauncher;
 
+    private Handler handlerNetworkExecutorResult;
     int REQUEST_ENABLE_BT = 1;
 
     @Override
@@ -64,6 +68,21 @@ public class MainActivity extends AppCompatActivity {
 
         // Mostrar la dirección MAC y NAME de nuestro dispositivo
         showBT_MAC_NAME();
+
+        // RECEPTOR TUBERIA
+
+        handlerNetworkExecutorResult = new Handler() {@Override
+        public void handleMessage(Message msg) {
+                String message = (String) msg.obj;
+                if (msg != null) {
+                    if (msg.arg1 == 0) { //Datos recibidos por el Bluetooth desde el cliente
+                        receivedEditText.append(message + "\n");
+                    } else if (msg.arg1 == 1) { //Informacion del estado del socket
+                        BT_ConnectionState_TextView.setText(message);
+                    }
+                }
+            }
+        };
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
