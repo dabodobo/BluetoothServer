@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         this.sendTextEditText.setEnabled(false);
         this.BT_ConnectionState_TextView.setText("NOT CONNECTED");
 
+        // Mostrar la dirección MAC de nuestro dispositivo
+        showBT_MAC_NAME();
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -100,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT); // sale en rojo porque es una función deprecated
         }
+    }
+    private void showBT_MAC_NAME(){
+        String BT_name = this.mBluetoothAdapter.getName();
+        String BT_MAC = this.mBluetoothAdapter.getAddress();
+        this.BT_MAC_TextView.setText("BT MAC:"+BT_MAC);
+        this.BT_Name_TextView.setText("BT Name:"+BT_name);
     }
 
 
